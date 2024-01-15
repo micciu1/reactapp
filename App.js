@@ -6,11 +6,9 @@ import EventItem from './src/EventItem';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-
-
 const eventsData = [
-  { id: '1', title: 'Event 1', date: '2024-01-15' },
-  { id: '2', title: 'Event 2', date: '2024-01-20' },
+  { id: '1', title: 'Event 1', date: '2024-01-15' , imagege: require("./assets/imagetest1.png")},
+  { id: '2', title: 'Event 2', date: '2024-01-20' , imagege: require("./assets/favicon.png")},
   
 ];
 
@@ -28,7 +26,7 @@ export default function App() {
         renderItem={({ item }) => (
           <View style={styles.eventItem}>
             <Text style={styles.title}>{item.title}</Text>
-            <Image source={require("./assets/imagetest1.png")} style={styles.eventImage}/>
+            <Image source={item.imagege} style={styles.eventImage}/>
             <Text style={styles.date}>{item.date}</Text>
           </View>
         )}
