@@ -1,22 +1,36 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 
 const Navbar = () => {
+
+  const navigation = useNavigation();
+
+  const handleLoginPress = () => {
+    navigation.navigate('Login'); 
+    
+  };
+
+  const handleHomePress = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <View style={styles.navbar}>
       {/* Logo */}
-      <TouchableOpacity style={styles.logoContainer}>
+      <TouchableOpacity onPress={handleHomePress} style={styles.logoContainer}>
       <Image source={require("../assets/logozut.png")} style={styles.logoImage}/>
       </TouchableOpacity>
 
       {/* Przycisk "Zaloguj" */}
-      <TouchableOpacity onPress={() => console.log('Zaloguj')}>
+      <TouchableOpacity onPress={handleLoginPress}>
         <View style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Zaloguj</Text>
+          <Text style={styles.loginButtonText}>{'Zaloguj'}</Text>
         </View>
       </TouchableOpacity>
     </View>
   );
+
 };
 
 const styles = StyleSheet.create({
